@@ -17,6 +17,7 @@
 		9201DB6D16E54FC7007B10CF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9201DB6C16E54FC7007B10CF /* Default@2x.png */; };
 		9201DB6F16E54FC7007B10CF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9201DB6E16E54FC7007B10CF /* Default-568h@2x.png */; };
 		9201DB7216E54FC7007B10CF /* THViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9201DB7116E54FC7007B10CF /* THViewController.m */; };
+		9201DB7E16E55184007B10CF /* THCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9201DB7D16E55184007B10CF /* THCircularProgressView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,8 @@
 		9201DB6E16E54FC7007B10CF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		9201DB7016E54FC7007B10CF /* THViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THViewController.h; sourceTree = "<group>"; };
 		9201DB7116E54FC7007B10CF /* THViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THViewController.m; sourceTree = "<group>"; };
+		9201DB7C16E55184007B10CF /* THCircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THCircularProgressView.h; sourceTree = "<group>"; };
+		9201DB7D16E55184007B10CF /* THCircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THCircularProgressView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +57,7 @@
 		9201DB4C16E54FC7007B10CF = {
 			isa = PBXGroup;
 			children = (
+				9201DB7B16E55184007B10CF /* THCircularProgressView */,
 				9201DB5E16E54FC7007B10CF /* THCircularProgressView-Demo */,
 				9201DB5716E54FC7007B10CF /* Frameworks */,
 				9201DB5616E54FC7007B10CF /* Products */,
@@ -102,6 +106,16 @@
 				9201DB6E16E54FC7007B10CF /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9201DB7B16E55184007B10CF /* THCircularProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				9201DB7C16E55184007B10CF /* THCircularProgressView.h */,
+				9201DB7D16E55184007B10CF /* THCircularProgressView.m */,
+			);
+			name = THCircularProgressView;
+			path = ../THCircularProgressView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,6 +187,7 @@
 				9201DB6516E54FC7007B10CF /* main.m in Sources */,
 				9201DB6916E54FC7007B10CF /* THAppDelegate.m in Sources */,
 				9201DB7216E54FC7007B10CF /* THViewController.m in Sources */,
+				9201DB7E16E55184007B10CF /* THCircularProgressView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
