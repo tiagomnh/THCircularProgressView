@@ -17,11 +17,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
     
     self.view.backgroundColor = [UIColor whiteColor];
-    
-    NSLog(@"%f %f", self.view.frame.size.width, self.view.frame.size.height);
         
     CGFloat width = self.view.frame.size.width;
     CGFloat height = self.view.frame.size.height;
