@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "THCircularProgressView.h"
+
 @interface THViewController : UIViewController
 
 @end
