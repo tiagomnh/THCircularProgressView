@@ -20,7 +20,7 @@
               radius:(CGFloat)radius
            lineWidth:(CGFloat)lineWidth
        progressColor:(UIColor *)progressColor
-            fillType:(TMHCircularProgressBarFillType)fillType
+            fillType:(THCircularProgressBarFillType)fillType
            fillColor:(UIColor *)fillColor
           percentage:(CGFloat)percentage
 {
@@ -74,14 +74,14 @@
 - (void)drawBackground:(CGRect)rect
 {
     switch (self.fillType) {
-        case TMHCircularProgressBarFillTypeCircle: {
+        case THCircularProgressBarFillTypeCircle: {
             CGContextRef ctx = UIGraphicsGetCurrentContext();
             CGContextAddEllipseInRect(ctx, rect);
             CGContextSetFillColor(ctx, CGColorGetComponents([self.fillColor CGColor]));
             CGContextFillPath(ctx);
             break;
         }
-        case TMHCircularProgressBarFillTypeCircumference: {
+        case THCircularProgressBarFillTypeCircumference: {
             CGFloat radiusMinusLineWidth = self.radius - self.lineWidth / 2;
             UIBezierPath *progressCircle = [UIBezierPath bezierPathWithArcCenter:self.center
                                                                           radius:radiusMinusLineWidth
@@ -93,7 +93,7 @@
             [progressCircle stroke];
             break;
         }
-        case TMHCircularProgressBarFillTypeNoFill:
+        case THCircularProgressBarFillTypeNoFill:
         default:
             break;
     }

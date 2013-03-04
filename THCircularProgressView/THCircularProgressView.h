@@ -11,10 +11,10 @@
 
 typedef enum
 {
-    TMHCircularProgressBarFillTypeNoFill,
-    TMHCircularProgressBarFillTypeCircle,
-    TMHCircularProgressBarFillTypeCircumference
-} TMHCircularProgressBarFillType;
+    THCircularProgressBarFillTypeNoFill,
+    THCircularProgressBarFillTypeCircle,
+    THCircularProgressBarFillTypeCircumference
+} THCircularProgressBarFillType;
 
 #pragma mark - Interface
 
@@ -25,13 +25,13 @@ typedef enum
 @property (nonatomic, strong) UILabel *centerLabel;
 @property (nonatomic, strong) UIColor *progressColor;
 @property (nonatomic, strong) UIColor *fillColor;
-@property TMHCircularProgressBarFillType fillType;
+@property THCircularProgressBarFillType fillType;
 
 - (id)initWithCenter:(CGPoint)center
               radius:(CGFloat)radius
            lineWidth:(CGFloat)lineWidth
        progressColor:(UIColor *)progressColor
-            fillType:(TMHCircularProgressBarFillType)fillType
+            fillType:(THCircularProgressBarFillType)fillType
            fillColor:(UIColor *)fillColor
           percentage:(CGFloat)percentage;
 
