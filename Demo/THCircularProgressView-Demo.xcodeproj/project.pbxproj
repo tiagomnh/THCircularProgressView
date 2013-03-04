@@ -1,0 +1,295 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9201DB5916E54FC7007B10CF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9201DB5816E54FC7007B10CF /* UIKit.framework */; };
+		9201DB5B16E54FC7007B10CF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9201DB5A16E54FC7007B10CF /* Foundation.framework */; };
+		9201DB5D16E54FC7007B10CF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9201DB5C16E54FC7007B10CF /* CoreGraphics.framework */; };
+		9201DB6316E54FC7007B10CF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9201DB6116E54FC7007B10CF /* InfoPlist.strings */; };
+		9201DB6516E54FC7007B10CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9201DB6416E54FC7007B10CF /* main.m */; };
+		9201DB6916E54FC7007B10CF /* THAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9201DB6816E54FC7007B10CF /* THAppDelegate.m */; };
+		9201DB6B16E54FC7007B10CF /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9201DB6A16E54FC7007B10CF /* Default.png */; };
+		9201DB6D16E54FC7007B10CF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9201DB6C16E54FC7007B10CF /* Default@2x.png */; };
+		9201DB6F16E54FC7007B10CF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9201DB6E16E54FC7007B10CF /* Default-568h@2x.png */; };
+		9201DB7216E54FC7007B10CF /* THViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9201DB7116E54FC7007B10CF /* THViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9201DB5516E54FC7007B10CF /* THCircularProgressView-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "THCircularProgressView-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9201DB5816E54FC7007B10CF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		9201DB5A16E54FC7007B10CF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9201DB5C16E54FC7007B10CF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9201DB6016E54FC7007B10CF /* THCircularProgressView-Demo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "THCircularProgressView-Demo-Info.plist"; sourceTree = "<group>"; };
+		9201DB6216E54FC7007B10CF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9201DB6416E54FC7007B10CF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9201DB6616E54FC7007B10CF /* THCircularProgressView-Demo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "THCircularProgressView-Demo-Prefix.pch"; sourceTree = "<group>"; };
+		9201DB6716E54FC7007B10CF /* THAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THAppDelegate.h; sourceTree = "<group>"; };
+		9201DB6816E54FC7007B10CF /* THAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THAppDelegate.m; sourceTree = "<group>"; };
+		9201DB6A16E54FC7007B10CF /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		9201DB6C16E54FC7007B10CF /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		9201DB6E16E54FC7007B10CF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		9201DB7016E54FC7007B10CF /* THViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THViewController.h; sourceTree = "<group>"; };
+		9201DB7116E54FC7007B10CF /* THViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9201DB5216E54FC7007B10CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9201DB5916E54FC7007B10CF /* UIKit.framework in Frameworks */,
+				9201DB5B16E54FC7007B10CF /* Foundation.framework in Frameworks */,
+				9201DB5D16E54FC7007B10CF /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9201DB4C16E54FC7007B10CF = {
+			isa = PBXGroup;
+			children = (
+				9201DB5E16E54FC7007B10CF /* THCircularProgressView-Demo */,
+				9201DB5716E54FC7007B10CF /* Frameworks */,
+				9201DB5616E54FC7007B10CF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9201DB5616E54FC7007B10CF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9201DB5516E54FC7007B10CF /* THCircularProgressView-Demo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9201DB5716E54FC7007B10CF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9201DB5816E54FC7007B10CF /* UIKit.framework */,
+				9201DB5A16E54FC7007B10CF /* Foundation.framework */,
+				9201DB5C16E54FC7007B10CF /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9201DB5E16E54FC7007B10CF /* THCircularProgressView-Demo */ = {
+			isa = PBXGroup;
+			children = (
+				9201DB6716E54FC7007B10CF /* THAppDelegate.h */,
+				9201DB6816E54FC7007B10CF /* THAppDelegate.m */,
+				9201DB7016E54FC7007B10CF /* THViewController.h */,
+				9201DB7116E54FC7007B10CF /* THViewController.m */,
+				9201DB5F16E54FC7007B10CF /* Supporting Files */,
+			);
+			path = "THCircularProgressView-Demo";
+			sourceTree = "<group>";
+		};
+		9201DB5F16E54FC7007B10CF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9201DB6016E54FC7007B10CF /* THCircularProgressView-Demo-Info.plist */,
+				9201DB6116E54FC7007B10CF /* InfoPlist.strings */,
+				9201DB6416E54FC7007B10CF /* main.m */,
+				9201DB6616E54FC7007B10CF /* THCircularProgressView-Demo-Prefix.pch */,
+				9201DB6A16E54FC7007B10CF /* Default.png */,
+				9201DB6C16E54FC7007B10CF /* Default@2x.png */,
+				9201DB6E16E54FC7007B10CF /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9201DB5416E54FC7007B10CF /* THCircularProgressView-Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9201DB7816E54FC7007B10CF /* Build configuration list for PBXNativeTarget "THCircularProgressView-Demo" */;
+			buildPhases = (
+				9201DB5116E54FC7007B10CF /* Sources */,
+				9201DB5216E54FC7007B10CF /* Frameworks */,
+				9201DB5316E54FC7007B10CF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "THCircularProgressView-Demo";
+			productName = "THCircularProgressView-Demo";
+			productReference = 9201DB5516E54FC7007B10CF /* THCircularProgressView-Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9201DB4D16E54FC7007B10CF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = TH;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Tiago Henriques";
+			};
+			buildConfigurationList = 9201DB5016E54FC7007B10CF /* Build configuration list for PBXProject "THCircularProgressView-Demo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9201DB4C16E54FC7007B10CF;
+			productRefGroup = 9201DB5616E54FC7007B10CF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9201DB5416E54FC7007B10CF /* THCircularProgressView-Demo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9201DB5316E54FC7007B10CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9201DB6316E54FC7007B10CF /* InfoPlist.strings in Resources */,
+				9201DB6B16E54FC7007B10CF /* Default.png in Resources */,
+				9201DB6D16E54FC7007B10CF /* Default@2x.png in Resources */,
+				9201DB6F16E54FC7007B10CF /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9201DB5116E54FC7007B10CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9201DB6516E54FC7007B10CF /* main.m in Sources */,
+				9201DB6916E54FC7007B10CF /* THAppDelegate.m in Sources */,
+				9201DB7216E54FC7007B10CF /* THViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9201DB6116E54FC7007B10CF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9201DB6216E54FC7007B10CF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9201DB7616E54FC7007B10CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9201DB7716E54FC7007B10CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9201DB7916E54FC7007B10CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "THCircularProgressView-Demo/THCircularProgressView-Demo-Prefix.pch";
+				INFOPLIST_FILE = "THCircularProgressView-Demo/THCircularProgressView-Demo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		9201DB7A16E54FC7007B10CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "THCircularProgressView-Demo/THCircularProgressView-Demo-Prefix.pch";
+				INFOPLIST_FILE = "THCircularProgressView-Demo/THCircularProgressView-Demo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9201DB5016E54FC7007B10CF /* Build configuration list for PBXProject "THCircularProgressView-Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9201DB7616E54FC7007B10CF /* Debug */,
+				9201DB7716E54FC7007B10CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9201DB7816E54FC7007B10CF /* Build configuration list for PBXNativeTarget "THCircularProgressView-Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9201DB7916E54FC7007B10CF /* Debug */,
+				9201DB7A16E54FC7007B10CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9201DB4D16E54FC7007B10CF /* Project object */;
+}
