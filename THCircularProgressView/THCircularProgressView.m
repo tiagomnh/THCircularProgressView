@@ -20,8 +20,8 @@
               radius:(CGFloat)radius
            lineWidth:(CGFloat)lineWidth
        progressColor:(UIColor *)progressColor
-            backgroundMode:(THProgressBackgroundMode)backgroundMode
-           progressBackgroundColor:(UIColor *)progressBackgroundColor
+      backgroundMode:(THProgressBackgroundMode)backgroundMode
+progressBackgroundColor:(UIColor *)progressBackgroundColor
           percentage:(CGFloat)percentage
 {
     CGRect rect = CGRectMake(center.x - radius, center.y - radius, 2 * radius, 2 * radius);
