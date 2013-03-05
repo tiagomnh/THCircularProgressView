@@ -31,13 +31,13 @@ typedef enum
 @property (nonatomic, strong) UILabel *centerLabel;
 @property (nonatomic, strong) UIColor *progressColor;
 @property (nonatomic, strong) UIColor *progressBackgroundColor;
-@property THProgressBackgroundMode backgroundMode;
+@property THProgressBackgroundMode progressBackgroundMode;
 
 - (id)initWithCenter:(CGPoint)center
               radius:(CGFloat)radius
            lineWidth:(CGFloat)lineWidth
        progressColor:(UIColor *)progressColor
-      backgroundMode:(THProgressBackgroundMode)backgroundMode
+progressBackgroundMode:(THProgressBackgroundMode)backgroundMode
 progressBackgroundColor:(UIColor *)progressBackgroundColor
           percentage:(CGFloat)percentage;
 

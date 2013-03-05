@@ -20,7 +20,7 @@
               radius:(CGFloat)radius
            lineWidth:(CGFloat)lineWidth
        progressColor:(UIColor *)progressColor
-      backgroundMode:(THProgressBackgroundMode)backgroundMode
+progressBackgroundMode:(THProgressBackgroundMode)backgroundMode
 progressBackgroundColor:(UIColor *)progressBackgroundColor
           percentage:(CGFloat)percentage
 {
@@ -34,7 +34,7 @@ progressBackgroundColor:(UIColor *)progressBackgroundColor
         self.radius = radius;
         self.lineWidth = lineWidth;
         self.progressColor = progressColor;
-        self.backgroundMode = backgroundMode;
+        self.progressBackgroundMode = backgroundMode;
         self.progressBackgroundColor = progressBackgroundColor;
         self.percentage = percentage;
         
@@ -73,7 +73,7 @@ progressBackgroundColor:(UIColor *)progressBackgroundColor
 
 - (void)drawBackground:(CGRect)rect
 {
-    switch (self.backgroundMode) {
+    switch (self.progressBackgroundMode) {
         case THProgressBackgroundModeCircle: {
             CGContextRef ctx = UIGraphicsGetCurrentContext();
             CGContextAddEllipseInRect(ctx, rect);

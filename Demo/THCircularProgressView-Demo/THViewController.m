@@ -36,8 +36,8 @@
                                                                                radius:radius
                                                                             lineWidth:20.0f
                                                                         progressColor:[UIColor redColor]
-                                                                             backgroundMode:THProgressBackgroundModeCircle
-                                                                            progressBackgroundColor:[UIColor colorWithRed:0.96f green:0.96f blue:0.96f alpha:1.00f]
+                                                               progressBackgroundMode:THProgressBackgroundModeCircle
+                                                              progressBackgroundColor:[UIColor colorWithRed:0.96f green:0.96f blue:0.96f alpha:1.00f]
                                                                            percentage:self.percentage];
     [self.view addSubview:example1];
     [self.examples addObject:example1];
@@ -47,8 +47,8 @@
                                                                                radius:radius
                                                                             lineWidth:20.0f
                                                                         progressColor:[UIColor greenColor]
-                                                                             backgroundMode:THProgressBackgroundModeCircumference
-                                                                            progressBackgroundColor:[UIColor colorWithRed:0.96f green:0.96f blue:0.96f alpha:1.00f]
+                                                               progressBackgroundMode:THProgressBackgroundModeCircumference
+                                                              progressBackgroundColor:[UIColor colorWithRed:0.96f green:0.96f blue:0.96f alpha:1.00f]
                                                                            percentage:self.percentage];
     [self.view addSubview:example2];
     [self.examples addObject:example2];
@@ -57,18 +57,18 @@
                                                                                radius:radius
                                                                             lineWidth:radius
                                                                         progressColor:[UIColor blueColor]
-                                                                             backgroundMode:THProgressBackgroundModeCircle
-                                                                            progressBackgroundColor:[UIColor colorWithRed:0.96f green:0.96f blue:0.96f alpha:1.00f]
+                                                               progressBackgroundMode:THProgressBackgroundModeCircle
+                                                              progressBackgroundColor:[UIColor colorWithRed:0.96f green:0.96f blue:0.96f alpha:1.00f]
                                                                            percentage:self.percentage];
     [self.view addSubview:example3];
     [self.examples addObject:example3];
-
+    
     THCircularProgressView *example4 = [[THCircularProgressView alloc] initWithCenter:CGPointMake(width * .75, height * .75)
                                                                                radius:radius
                                                                             lineWidth:radius
                                                                         progressColor:[UIColor purpleColor]
-                                                                             backgroundMode:THProgressBackgroundModeNone
-                                                                            progressBackgroundColor:nil
+                                                               progressBackgroundMode:THProgressBackgroundModeNone
+                                                              progressBackgroundColor:nil
                                                                            percentage:self.percentage];
     [self.view addSubview:example4];
     [self.examples addObject:example4];
