@@ -95,8 +95,6 @@
         self.percentage = 0;
     }
     
-    NSLog(@"%f", self.percentage);
-    
     for (THCircularProgressView* progressView in self.examples) {
         progressView.percentage = self.percentage;
     }
