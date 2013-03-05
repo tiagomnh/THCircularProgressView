@@ -20,8 +20,8 @@
               radius:(CGFloat)radius
            lineWidth:(CGFloat)lineWidth
        progressColor:(UIColor *)progressColor
-            fillType:(THCircularProgressBarFillType)fillType
-           fillColor:(UIColor *)fillColor
+            backgroundMode:(THProgressBackgroundMode)backgroundMode
+           progressBackgroundColor:(UIColor *)progressBackgroundColor
           percentage:(CGFloat)percentage
 {
     CGRect rect = CGRectMake(center.x - radius, center.y - radius, 2 * radius, 2 * radius);
@@ -34,8 +34,8 @@
         self.radius = radius;
         self.lineWidth = lineWidth;
         self.progressColor = progressColor;
-        self.fillType = fillType;
-        self.fillColor = fillColor;
+        self.backgroundMode = backgroundMode;
+        self.progressBackgroundColor = progressBackgroundColor;
         self.percentage = percentage;
         
         self.centerLabel = [[UILabel alloc] initWithFrame:rect];
@@ -73,27 +73,27 @@
 
 - (void)drawBackground:(CGRect)rect
 {
-    switch (self.fillType) {
-        case THCircularProgressBarFillTypeCircle: {
+    switch (self.backgroundMode) {
+        case THProgressBackgroundModeCircle: {
             CGContextRef ctx = UIGraphicsGetCurrentContext();
             CGContextAddEllipseInRect(ctx, rect);
-            CGContextSetFillColor(ctx, CGColorGetComponents([self.fillColor CGColor]));
+            CGContextSetFillColor(ctx, CGColorGetComponents([self.progressBackgroundColor CGColor]));
             CGContextFillPath(ctx);
             break;
         }
-        case THCircularProgressBarFillTypeCircumference: {
+        case THProgressBackgroundModeCircumference: {
             CGFloat radiusMinusLineWidth = self.radius - self.lineWidth / 2;
             UIBezierPath *progressCircle = [UIBezierPath bezierPathWithArcCenter:self.center
                                                                           radius:radiusMinusLineWidth
                                                                       startAngle:0
                                                                         endAngle:2 * M_PI
                                                                        clockwise:YES];
-            [self.fillColor setStroke];
+            [self.progressBackgroundColor setStroke];
             progressCircle.lineWidth = self.lineWidth;
             [progressCircle stroke];
             break;
         }
-        case THCircularProgressBarFillTypeNoFill:
+        case THProgressBackgroundModeNone:
         default:
             break;
     }
@@ -101,9 +101,9 @@
 
 #pragma mark - Public
 
-- (void)setFillColor:(UIColor *)fillColor
+- (void)setProgressBackgroundColor:(UIColor *)progressBackgroundColor
 {
-    _fillColor = fillColor;
+    _progressBackgroundColor = progressBackgroundColor;
     [self setNeedsDisplay];
 }
 
