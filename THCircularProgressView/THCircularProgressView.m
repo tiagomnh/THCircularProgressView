@@ -56,37 +56,7 @@ progressBackgroundColor:(UIColor *)progressBackgroundColor
 - (void)drawRect:(CGRect)rect
 {
     [self drawBackground:rect];
-    
-    CGFloat radiusMinusLineWidth = self.radius - self.lineWidth / 2;
-    
-    if (self.progressMode == THProgressModeFill) {
-        CGFloat startAngle = -M_PI / 2;
-        CGFloat endAngle = startAngle + self.percentage * 2 * M_PI;
-        
-        UIBezierPath *progressCircle = [UIBezierPath bezierPathWithArcCenter:self.center
-                                                                      radius:radiusMinusLineWidth
-                                                                  startAngle:startAngle
-                                                                    endAngle:endAngle
-                                                                   clockwise:YES];
-        
-        [self.progressColor setStroke];
-        progressCircle.lineWidth = self.lineWidth;
-        [progressCircle stroke];
-    }
-    else if (self.progressMode == THProgressModeDeplete) {
-        CGFloat startAngle = -M_PI / 2 + self.percentage * 2 * M_PI;
-        CGFloat endAngle = 1.5 * M_PI;
-        
-        UIBezierPath *progressCircle = [UIBezierPath bezierPathWithArcCenter:self.center
-                                                                      radius:radiusMinusLineWidth
-                                                                  startAngle:startAngle
-                                                                    endAngle:endAngle
-                                                                   clockwise:YES];
-        
-        [self.progressColor setStroke];
-        progressCircle.lineWidth = self.lineWidth;
-        [progressCircle stroke];
-    }
+    [self drawProgress];
 }
 
 - (void)drawBackground:(CGRect)rect
@@ -115,6 +85,35 @@ progressBackgroundColor:(UIColor *)progressBackgroundColor
         default:
             break;
     }
+}
+
+- (void)drawProgress
+{
+    CGFloat radiusMinusLineWidth = self.radius - self.lineWidth / 2;
+    
+    if (self.progressMode == THProgressModeFill && self.percentage > 0) {
+        CGFloat startAngle = -M_PI / 2;
+        CGFloat endAngle = startAngle + self.percentage * 2 * M_PI;
+        [self drawProgressArcWithStartAngle:startAngle endAngle:endAngle radius:radiusMinusLineWidth];
+    }
+    else if (self.progressMode == THProgressModeDeplete && self.percentage < 1) {
+        CGFloat startAngle = -M_PI / 2 + self.percentage * 2 * M_PI;
+        CGFloat endAngle = 1.5 * M_PI;
+        [self drawProgressArcWithStartAngle:startAngle endAngle:endAngle radius:radiusMinusLineWidth];
+    }
+}
+
+- (void)drawProgressArcWithStartAngle:(CGFloat)startAngle endAngle:(CGFloat)endAngle radius:(CGFloat)radius
+{
+    UIBezierPath *progressCircle = [UIBezierPath bezierPathWithArcCenter:self.center
+                                                                  radius:radius
+                                                              startAngle:startAngle
+                                                                endAngle:endAngle
+                                                               clockwise:YES];
+    
+    [self.progressColor setStroke];
+    progressCircle.lineWidth = self.lineWidth;
+    [progressCircle stroke];
 }
 
 #pragma mark - Public
