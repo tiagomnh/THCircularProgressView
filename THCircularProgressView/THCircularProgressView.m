@@ -57,9 +57,23 @@ progressBackgroundColor:(UIColor *)progressBackgroundColor
 {
     [self drawBackground:rect];
     
-    if (self.percentage < 1.0f) {
-        CGFloat radiusMinusLineWidth = self.radius - self.lineWidth / 2;
+    CGFloat radiusMinusLineWidth = self.radius - self.lineWidth / 2;
+    
+    if (self.progressMode == THProgressModeFill) {
+        CGFloat startAngle = -M_PI / 2;
+        CGFloat endAngle = startAngle + self.percentage * 2 * M_PI;
         
+        UIBezierPath *progressCircle = [UIBezierPath bezierPathWithArcCenter:self.center
+                                                                      radius:radiusMinusLineWidth
+                                                                  startAngle:startAngle
+                                                                    endAngle:endAngle
+                                                                   clockwise:YES];
+        
+        [self.progressColor setStroke];
+        progressCircle.lineWidth = self.lineWidth;
+        [progressCircle stroke];
+    }
+    else if (self.progressMode == THProgressModeDeplete) {
         CGFloat startAngle = -M_PI / 2 + self.percentage * 2 * M_PI;
         CGFloat endAngle = 1.5 * M_PI;
         
