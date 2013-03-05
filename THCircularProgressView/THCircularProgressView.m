@@ -19,6 +19,7 @@
 - (id)initWithCenter:(CGPoint)center
               radius:(CGFloat)radius
            lineWidth:(CGFloat)lineWidth
+        progressMode:(THProgressMode)progressMode
        progressColor:(UIColor *)progressColor
 progressBackgroundMode:(THProgressBackgroundMode)backgroundMode
 progressBackgroundColor:(UIColor *)progressBackgroundColor
@@ -33,9 +34,12 @@ progressBackgroundColor:(UIColor *)progressBackgroundColor
         self.center = CGPointMake(radius, radius);
         self.radius = radius;
         self.lineWidth = lineWidth;
+        
+        self.progressMode = progressMode;
         self.progressColor = progressColor;
         self.progressBackgroundMode = backgroundMode;
         self.progressBackgroundColor = progressBackgroundColor;
+        
         self.percentage = percentage;
         
         self.centerLabel = [[UILabel alloc] initWithFrame:rect];
