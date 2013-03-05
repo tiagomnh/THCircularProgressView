@@ -34,7 +34,7 @@
     
     THCircularProgressView *example1 = [[THCircularProgressView alloc] initWithCenter:CGPointMake(width * .25, height * .25)
                                                                                radius:radius
-                                                                            lineWidth:20.0f
+                                                                            lineWidth:10.0f
                                                                         progressColor:[UIColor redColor]
                                                                progressBackgroundMode:THProgressBackgroundModeCircle
                                                               progressBackgroundColor:[UIColor colorWithRed:0.96f green:0.96f blue:0.96f alpha:1.00f]
@@ -45,7 +45,7 @@
     
     THCircularProgressView *example2 = [[THCircularProgressView alloc] initWithCenter:CGPointMake(width * .75, height * .25)
                                                                                radius:radius
-                                                                            lineWidth:20.0f
+                                                                            lineWidth:30.0f
                                                                         progressColor:[UIColor greenColor]
                                                                progressBackgroundMode:THProgressBackgroundModeCircumference
                                                               progressBackgroundColor:[UIColor colorWithRed:0.96f green:0.96f blue:0.96f alpha:1.00f]
