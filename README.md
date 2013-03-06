@@ -1,6 +1,12 @@
 # THCircularProgressView
 
-A configurable circular progress view.
+`THCircularProgressView` is a `UIView` subclass useful with a circular view useful for illustrating progress.
+
+![Screenshot](Screenshot.png)
+
+## Installation
+
+Drag the contents of `THCircularProgressView/` into your project.
 
 ## License
 
