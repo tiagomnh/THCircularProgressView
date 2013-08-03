@@ -7,6 +7,8 @@
 
 #import "THCircularProgressView.h"
 
+#define CGPointCenterPointOfRect(rect) CGPointMake(rect.origin.x + rect.size.width / 2.0f, rect.origin.y + rect.size.height / 2.0f)
+
 @interface THCircularProgressView ()
 
 @property CGPoint center;
@@ -31,7 +33,6 @@ progressBackgroundColor:(UIColor *)progressBackgroundColor
     if (self) {
         self.backgroundColor = [UIColor clearColor];
  
-        self.center = CGPointMake(radius, radius);
         self.radius = radius;
         self.lineWidth = lineWidth;
         
@@ -71,7 +72,7 @@ progressBackgroundColor:(UIColor *)progressBackgroundColor
         }
         case THProgressBackgroundModeCircumference: {
             CGFloat radiusMinusLineWidth = self.radius - self.lineWidth / 2;
-            UIBezierPath *progressCircle = [UIBezierPath bezierPathWithArcCenter:self.center
+            UIBezierPath *progressCircle = [UIBezierPath bezierPathWithArcCenter:CGPointCenterPointOfRect(rect)
                                                                           radius:radiusMinusLineWidth
                                                                       startAngle:0
                                                                         endAngle:2 * M_PI
@@ -105,7 +106,7 @@ progressBackgroundColor:(UIColor *)progressBackgroundColor
 
 - (void)drawProgressArcWithStartAngle:(CGFloat)startAngle endAngle:(CGFloat)endAngle radius:(CGFloat)radius
 {
-    UIBezierPath *progressCircle = [UIBezierPath bezierPathWithArcCenter:self.center
+    UIBezierPath *progressCircle = [UIBezierPath bezierPathWithArcCenter:CGPointCenterPointOfRect(self.bounds)
                                                                   radius:radius
                                                               startAngle:startAngle
                                                                 endAngle:endAngle
