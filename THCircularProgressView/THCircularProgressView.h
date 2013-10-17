@@ -33,6 +33,7 @@ typedef enum
 @property (nonatomic, strong) UIColor *progressBackgroundColor;
 @property THProgressMode progressMode;
 @property THProgressBackgroundMode progressBackgroundMode;
+@property (nonatomic) BOOL isLabelVisible;
 
 - (id)initWithCenter:(CGPoint)center
               radius:(CGFloat)radius
