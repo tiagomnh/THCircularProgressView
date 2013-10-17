@@ -97,8 +97,8 @@
 - (void)timerFired:(NSTimer *)timer
 {
     self.percentage += 0.005;
-    if (self.percentage >= 1) {
-        self.percentage = 0;
+    if (self.percentage > 1.2f) { // short pause on 100
+        self.percentage = 0.0f;
     }
     
     for (THCircularProgressView* progressView in self.examples) {

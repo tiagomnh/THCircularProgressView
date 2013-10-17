@@ -34,6 +34,7 @@ typedef enum
 @property THProgressMode progressMode;
 @property THProgressBackgroundMode progressBackgroundMode;
 @property (nonatomic) BOOL isLabelVisible;
+@property (nonatomic) BOOL isInvalid;
 
 - (id)initWithCenter:(CGPoint)center
               radius:(CGFloat)radius
