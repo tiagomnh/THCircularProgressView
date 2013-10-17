@@ -52,6 +52,8 @@
                                                                progressBackgroundMode:THProgressBackgroundModeCircumference
                                                               progressBackgroundColor:[UIColor colorWithRed:0.96f green:0.96f blue:0.96f alpha:1.00f]
                                                                            percentage:self.percentage];
+    example2.centerLabel.font = [UIFont boldSystemFontOfSize:radius];
+    example2.isLabelVisible = YES;
     [self.view addSubview:example2];
     [self.examples addObject:example2];
     
@@ -95,8 +97,8 @@
 - (void)timerFired:(NSTimer *)timer
 {
     self.percentage += 0.005;
-    if (self.percentage >= 1) {
-        self.percentage = 0;
+    if (self.percentage > 1.2f) { // short pause on 100
+        self.percentage = 0.0f;
     }
     
     for (THCircularProgressView* progressView in self.examples) {

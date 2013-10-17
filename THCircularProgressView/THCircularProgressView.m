@@ -43,10 +43,13 @@ progressBackgroundColor:(UIColor *)progressBackgroundColor
         
         self.percentage = percentage;
         
-        self.centerLabel = [[UILabel alloc] initWithFrame:rect];
-        self.centerLabel.center = CGPointMake(radius, radius);
-        self.centerLabel.textAlignment = NSTextAlignmentCenter;
-        self.centerLabel.backgroundColor = [UIColor clearColor];
+        UILabel *label = [[UILabel alloc] initWithFrame:rect];
+        label.center = CGPointMake(radius, radius);
+        label.textAlignment = NSTextAlignmentCenter;
+        label.backgroundColor = [UIColor clearColor];
+        label.adjustsFontSizeToFitWidth = YES;
+        self.centerLabel = label;
+        self.isLabelVisible = NO;
         
         [self addSubview:self.centerLabel];
     }
@@ -133,8 +136,24 @@ progressBackgroundColor:(UIColor *)progressBackgroundColor
 
 - (void)setPercentage:(CGFloat)percentage
 {
+    _isInvalid = NO;
     _percentage = fminf(fmax(percentage, 0), 1);
+    _centerLabel.text = [NSString stringWithFormat:@"%.0f", _percentage*100.0f];
     [self setNeedsDisplay];
+}
+
+- (void) setIsInvalid:(BOOL)invalid;
+{
+    if (invalid) {
+        _percentage = 0.0f;
+        _centerLabel.text = @"–";
+        [self setNeedsDisplay];
+    }
+}
+
+- (void) setIsLabelVisible:(BOOL)isLabelVisible;
+{
+    self.centerLabel.hidden = !isLabelVisible;
 }
 
 @end
