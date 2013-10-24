@@ -135,7 +135,6 @@ progressBackgroundColor:(UIColor *)progressBackgroundColor
 - (void)setPercentage:(CGFloat)percentage
 {
     _percentage = fminf(fmax(percentage, 0), 1);
-    _centerLabel.text = [NSString stringWithFormat:@"%.0f", percentage*100.0f];
     [self setNeedsDisplay];
 }
 
