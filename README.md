@@ -27,6 +27,14 @@ It supports two kinds of progress mode:
 * `THProgressModeFill` - starts empty and gets filled as percentage increases;
 * `THProgressModeDeplete` - starts full and depletes as percentage increases;
 
+There is also a label that can be set to display the number the progress view represents. For example:
+
+```objc
+THCircularProgressView *progress = ...;
+CGFloat percentage = 0.3f;
+progress.centerLabel.text = [NSString stringWithFormat:@"%.0f", percentage*100.0f];
+```
+
 The sample project in `/Demo` contains some examples.
 
 ## License
