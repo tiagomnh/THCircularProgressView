@@ -47,7 +47,7 @@ progressBackgroundColor:(UIColor *)progressBackgroundColor
         self.centerLabel.center = CGPointMake(radius, radius);
         self.centerLabel.textAlignment = NSTextAlignmentCenter;
         self.centerLabel.backgroundColor = [UIColor clearColor];
-        self.isLabelVisible = NO;
+        self.centerLabelVisible = NO;
         
         [self addSubview:self.centerLabel];
     }
@@ -138,9 +138,14 @@ progressBackgroundColor:(UIColor *)progressBackgroundColor
     [self setNeedsDisplay];
 }
 
-- (void) setIsLabelVisible:(BOOL)isLabelVisible;
+- (void)setCenterLabelVisible:(BOOL)centerLabelVisible
 {
-    self.centerLabel.hidden = !isLabelVisible;
+    self.centerLabel.hidden = !centerLabelVisible;
+}
+
+- (BOOL)centerLabelVisible
+{
+    return !self.centerLabel.hidden;
 }
 
 @end
