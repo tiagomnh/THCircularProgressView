@@ -32,7 +32,8 @@ There is also a label that can be set to display the number the progress view re
 ```objc
 THCircularProgressView *progress = ...;
 CGFloat percentage = 0.3f;
-progress.centerLabel.text = [NSString stringWithFormat:@"%.0f", percentage*100.0f];
+progress.centerLabel.text = [NSString stringWithFormat:@"%.0f", percentage * 100.0f];
+progress.centerLabelVisible = YES; // needed since label is invisible by default
 ```
 
 The sample project in `/Demo` contains some examples.
