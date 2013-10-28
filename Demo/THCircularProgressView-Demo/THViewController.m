@@ -52,7 +52,6 @@
                                                                progressBackgroundMode:THProgressBackgroundModeCircumference
                                                               progressBackgroundColor:[UIColor colorWithRed:0.96f green:0.96f blue:0.96f alpha:1.00f]
                                                                            percentage:self.percentage];
-    example2.centerLabel.font = [UIFont boldSystemFontOfSize:radius];
     [self.view addSubview:example2];
     [self.examples addObject:example2];
     
