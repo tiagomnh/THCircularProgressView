@@ -44,14 +44,11 @@
     [self.examples addObject:example1];
     
     
-    THCircularProgressView *example2 = [[THCircularProgressView alloc] initWithCenter:CGPointMake(width * .75, height * .25)
-                                                                               radius:radius
-                                                                            lineWidth:30.0f
-                                                                         progressMode:THProgressModeFill
-                                                                        progressColor:[UIColor greenColor]
-                                                               progressBackgroundMode:THProgressBackgroundModeCircumference
-                                                              progressBackgroundColor:[UIColor colorWithRed:0.96f green:0.96f blue:0.96f alpha:1.00f]
-                                                                           percentage:self.percentage];
+    THCircularProgressView *example2 = [[THCircularProgressView alloc] initWithFrame:CGRectMake(width/2, example1.frame.origin.y, radius*2, radius*2)];
+    example2.lineWidth = 30.0f;
+    example2.progressColor = [UIColor greenColor];
+    example2.centerLabel.font = [UIFont boldSystemFontOfSize:radius];
+    example2.centerLabelVisible = YES;
     [self.view addSubview:example2];
     [self.examples addObject:example2];
     
