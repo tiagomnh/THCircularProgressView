@@ -13,7 +13,7 @@ Drag the contents of `THCircularProgressView/` into your project.
 `THCircularProgressView` is simply a `UIView` subclass so just instantiate it and add it a view hieararchy. The initializer is:
 
 ```objc
-- (id)initWithCenter:(CGPoint)center
+- (instancetype)initWithCenter:(CGPoint)center
               radius:(CGFloat)radius
            lineWidth:(CGFloat)lineWidth
         progressMode:(THProgressMode)progressMode
@@ -23,8 +23,10 @@ progressBackgroundColor:(UIColor *)progressBackgroundColor
           percentage:(CGFloat)percentage
 ```
 
+You can also use the standard `-[UIView initWithFrame:(CGRect)frame]`.
+
 It supports two kinds of progress mode:
-* `THProgressModeFill` - starts empty and gets filled as percentage increases;
+* `THProgressModeFill` - starts empty and gets filled as percentage increases; (default)
 * `THProgressModeDeplete` - starts full and depletes as percentage increases;
 
 There is also a label that can be set to display the number the progress view represents. For example:
