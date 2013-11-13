@@ -109,7 +109,31 @@
 
 - (BOOL)shouldAutorotate
 {
-    return false;
+    return NO;
+}
+
+- (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
+{
+    // tap to change size
+    
+    for (THCircularProgressView *view in self.examples) {
+
+        CGFloat newWidth;
+
+        if (view.tag == 2) {
+            newWidth = view.frame.size.width*2;
+            view.tag = 1;
+        } else {
+            newWidth = view.frame.size.width/2;
+            view.tag = 2;
+        }
+        CGRect frame = view.frame;
+        frame.size.width = newWidth;
+        frame.size.height = newWidth;
+        view.frame = frame;
+        
+    }
+    
 }
 
 @end
