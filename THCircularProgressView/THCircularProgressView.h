@@ -24,6 +24,7 @@ typedef NS_ENUM(NSUInteger, THProgressMode) {
 
 @interface THCircularProgressView : UIView
 
+@property (nonatomic) CGFloat radius;
 @property (nonatomic) CGFloat lineWidth;
 @property (nonatomic) CGFloat percentage;
 @property (nonatomic, strong) UILabel *centerLabel;
