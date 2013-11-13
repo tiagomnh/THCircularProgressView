@@ -33,6 +33,7 @@ typedef NS_ENUM(NSUInteger, THProgressMode) {
 @property (nonatomic) BOOL centerLabelVisible;
 @property (nonatomic) THProgressMode progressMode;
 @property (nonatomic) THProgressBackgroundMode progressBackgroundMode;
+@property (nonatomic) BOOL clockwise;
 
 - (id)initWithCenter:(CGPoint)center
               radius:(CGFloat)radius

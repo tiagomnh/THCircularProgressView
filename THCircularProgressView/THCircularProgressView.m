@@ -26,6 +26,7 @@
         self.progressColor = [UIColor redColor];
         self.progressBackgroundMode = THProgressBackgroundModeCircumference;
         self.progressMode = THProgressModeFill;
+        self.clockwise = YES;
         
         self.backgroundColor = [UIColor clearColor];
         oldFrameWidth = frame.size.width;
@@ -137,26 +138,37 @@
 {
     CGFloat radius = [self radius];
     CGFloat radiusMinusLineWidth = radius - self.lineWidth / 2;
+    CGFloat percentage = self.percentage;
     
-    if (self.progressMode == THProgressModeFill && self.percentage > 0) {
-        CGFloat startAngle = -M_PI / 2;
-        CGFloat endAngle = startAngle + self.percentage * 2 * M_PI;
-        [self drawProgressArcWithStartAngle:startAngle endAngle:endAngle radius:radiusMinusLineWidth];
+    if (self.clockwise == NO) {
+        percentage = 1.0f - percentage;
     }
-    else if (self.progressMode == THProgressModeDeplete && self.percentage < 1) {
-        CGFloat startAngle = -M_PI / 2 + self.percentage * 2 * M_PI;
-        CGFloat endAngle = 1.5 * M_PI;
-        [self drawProgressArcWithStartAngle:startAngle endAngle:endAngle radius:radiusMinusLineWidth];
+
+    BOOL clockwise = YES;
+    if ((self.clockwise && self.progressMode == THProgressModeDeplete) ||
+        (self.clockwise == NO && self.progressMode == THProgressModeFill)) {
+        clockwise = NO;
     }
+    
+    CGFloat startAngle = -M_PI_2;
+    CGFloat endAngle = startAngle + percentage * 2 * M_PI;
+    
+    if (self.progressMode == THProgressModeFill && percentage > 0) {
+        [self drawProgressArcWithStartAngle:startAngle endAngle:endAngle radius:radiusMinusLineWidth clockwise:clockwise];
+    }
+    else if (self.progressMode == THProgressModeDeplete && percentage < 1) {
+        [self drawProgressArcWithStartAngle:startAngle endAngle:endAngle radius:radiusMinusLineWidth clockwise:clockwise];
+    }
+    
 }
 
-- (void)drawProgressArcWithStartAngle:(CGFloat)startAngle endAngle:(CGFloat)endAngle radius:(CGFloat)radius
+- (void)drawProgressArcWithStartAngle:(CGFloat)startAngle endAngle:(CGFloat)endAngle radius:(CGFloat)radius clockwise:(BOOL)clockwise
 {
     UIBezierPath *progressCircle = [UIBezierPath bezierPathWithArcCenter:CGPointCenterPointOfRect(self.bounds)
                                                                   radius:radius
                                                               startAngle:startAngle
                                                                 endAngle:endAngle
-                                                               clockwise:YES];
+                                                               clockwise:clockwise];
     
     [self.progressColor setStroke];
     progressCircle.lineWidth = self.lineWidth;

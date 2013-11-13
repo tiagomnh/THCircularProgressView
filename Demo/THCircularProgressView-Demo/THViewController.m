@@ -40,6 +40,7 @@
                                                                progressBackgroundMode:THProgressBackgroundModeCircle
                                                               progressBackgroundColor:[UIColor colorWithRed:0.96f green:0.96f blue:0.96f alpha:1.00f]
                                                                            percentage:self.percentage];
+    example1.clockwise = NO;
     [self.view addSubview:example1];
     [self.examples addObject:example1];
     
@@ -60,6 +61,7 @@
                                                                progressBackgroundMode:THProgressBackgroundModeCircle
                                                               progressBackgroundColor:[UIColor colorWithRed:0.96f green:0.96f blue:0.96f alpha:1.00f]
                                                                            percentage:self.percentage];
+    example3.clockwise = NO;
     [self.view addSubview:example3];
     [self.examples addObject:example3];
     
