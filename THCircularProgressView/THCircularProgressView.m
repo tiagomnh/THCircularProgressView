@@ -9,56 +9,89 @@
 
 #define CGPointCenterPointOfRect(rect) CGPointMake(rect.origin.x + rect.size.width / 2.0f, rect.origin.y + rect.size.height / 2.0f)
 
-@interface THCircularProgressView ()
-
-@property CGPoint center;
-@property CGFloat radius;
-
+@interface THCircularProgressView () {
+    CGFloat oldFrameWidth;
+}
 @end
 
 @implementation THCircularProgressView
 
-- (id)initWithCenter:(CGPoint)center
-              radius:(CGFloat)radius
-           lineWidth:(CGFloat)lineWidth
-        progressMode:(THProgressMode)progressMode
-       progressColor:(UIColor *)progressColor
-progressBackgroundMode:(THProgressBackgroundMode)backgroundMode
-progressBackgroundColor:(UIColor *)progressBackgroundColor
-          percentage:(CGFloat)percentage
+- (instancetype) initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+
+        self.lineWidth = 10.0f;
+        self.progressBackgroundColor = [UIColor colorWithRed:0.96f green:0.96f blue:0.96f alpha:1.00f];
+        self.progressColor = [UIColor redColor];
+        self.progressBackgroundMode = THProgressBackgroundModeCircumference;
+        self.progressMode = THProgressModeFill;
+        
+        self.backgroundColor = [UIColor clearColor];
+        oldFrameWidth = frame.size.width;
+
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.backgroundColor = [UIColor clearColor];
+        label.adjustsFontSizeToFitWidth = YES;
+        label.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+        self.centerLabel = label;
+        self.centerLabelVisible = NO;
+        
+        self.contentMode = UIViewContentModeRedraw;
+        
+        [self addSubview:self.centerLabel];
+
+    }
+ 
+    return self;
+}
+
+- (instancetype)initWithCenter:(CGPoint)center
+                        radius:(CGFloat)radius
+                     lineWidth:(CGFloat)lineWidth
+                  progressMode:(THProgressMode)progressMode
+                 progressColor:(UIColor *)progressColor
+        progressBackgroundMode:(THProgressBackgroundMode)backgroundMode
+       progressBackgroundColor:(UIColor *)progressBackgroundColor
+                    percentage:(CGFloat)percentage
 {
     CGRect rect = CGRectMake(center.x - radius, center.y - radius, 2 * radius, 2 * radius);
     
-    self = [super initWithFrame:rect];
+    self = [self initWithFrame:rect];
     if (self) {
-        self.backgroundColor = [UIColor clearColor];
- 
-        self.radius = radius;
         self.lineWidth = lineWidth;
-        
         self.progressMode = progressMode;
         self.progressColor = progressColor;
         self.progressBackgroundMode = backgroundMode;
         self.progressBackgroundColor = progressBackgroundColor;
-        
         self.percentage = percentage;
-        
-        self.centerLabel = [[UILabel alloc] initWithFrame:rect];
-        self.centerLabel.center = CGPointMake(radius, radius);
-        self.centerLabel.textAlignment = NSTextAlignmentCenter;
-        self.centerLabel.backgroundColor = [UIColor clearColor];
-        self.centerLabelVisible = NO;
-        
-        [self addSubview:self.centerLabel];
     }
     
     return self;
 }
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    // scale linewidth and font to match new size
+    CGFloat w = self.frame.size.width;
+    CGFloat scale = w/oldFrameWidth;
+    if (scale != 1.0) {
+        _lineWidth *= scale;
+        if (self.centerLabelVisible) {
+            CGFloat pointSize = self.centerLabel.font.pointSize * scale;
+            UIFont *font = [UIFont fontWithName:self.centerLabel.font.fontName size:pointSize];
+            self.centerLabel.font = font;
+        }
+    }
+    oldFrameWidth = w;
+}
+
 - (void)drawRect:(CGRect)rect
 {
     [self drawBackground:rect];
-    [self drawProgress];
+    [self drawProgress:rect];
 }
 
 - (void)drawBackground:(CGRect)rect
@@ -89,9 +122,20 @@ progressBackgroundColor:(UIColor *)progressBackgroundColor
     }
 }
 
-- (void)drawProgress
+- (CGFloat) radius
 {
-    CGFloat radiusMinusLineWidth = self.radius - self.lineWidth / 2;
+    return self.frame.size.width/2.0;
+}
+
+- (void) setRadius:(CGFloat)radius
+{
+    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, radius*2.0f, radius*2.0f);
+}
+
+- (void)drawProgress:(CGRect)rect
+{
+    CGFloat radius = [self radius];
+    CGFloat radiusMinusLineWidth = radius - self.lineWidth / 2;
     
     if (self.progressMode == THProgressModeFill && self.percentage > 0) {
         CGFloat startAngle = -M_PI / 2;
@@ -129,6 +173,12 @@ progressBackgroundColor:(UIColor *)progressBackgroundColor
 - (void)setProgressColor:(UIColor *)progressColor
 {
     _progressColor = progressColor;
+    [self setNeedsDisplay];
+}
+
+- (void)setLineWidth:(CGFloat)lineWidth
+{
+    _lineWidth = lineWidth;
     [self setNeedsDisplay];
 }
 

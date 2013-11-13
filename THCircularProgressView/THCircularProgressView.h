@@ -9,31 +9,30 @@
 
 #pragma mark - Enums
 
-typedef enum
-{
+typedef NS_ENUM(NSUInteger, THProgressBackgroundMode) {
     THProgressBackgroundModeNone,
     THProgressBackgroundModeCircle,
     THProgressBackgroundModeCircumference
-} THProgressBackgroundMode;
+};
 
-typedef enum
-{
+typedef NS_ENUM(NSUInteger, THProgressMode) {
     THProgressModeFill,
     THProgressModeDeplete
-} THProgressMode;
+};
 
 #pragma mark - Interface
 
 @interface THCircularProgressView : UIView
 
+@property (nonatomic) CGFloat radius;
 @property (nonatomic) CGFloat lineWidth;
 @property (nonatomic) CGFloat percentage;
 @property (nonatomic, strong) UILabel *centerLabel;
 @property (nonatomic, strong) UIColor *progressColor;
 @property (nonatomic, strong) UIColor *progressBackgroundColor;
-@property THProgressMode progressMode;
-@property THProgressBackgroundMode progressBackgroundMode;
 @property (nonatomic) BOOL centerLabelVisible;
+@property (nonatomic) THProgressMode progressMode;
+@property (nonatomic) THProgressBackgroundMode progressBackgroundMode;
 
 - (id)initWithCenter:(CGPoint)center
               radius:(CGFloat)radius
