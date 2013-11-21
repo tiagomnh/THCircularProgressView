@@ -108,28 +108,24 @@
     return NO;
 }
 
-- (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
 {
     // tap to change size
     
-    for (THCircularProgressView *view in self.examples) {
-
-        CGFloat newWidth;
-
-        if (view.tag == 2) {
-            newWidth = view.frame.size.width*2;
-            view.tag = 1;
-        } else {
-            newWidth = view.frame.size.width/2;
-            view.tag = 2;
-        }
-        CGRect frame = view.frame;
-        frame.size.width = newWidth;
-        frame.size.height = newWidth;
-        view.frame = frame;
-        
+    static BOOL originalSize = YES;
+    CGFloat multiplier = 0.5f;
+    if (!originalSize) {
+        multiplier = 2.0f;
     }
+    originalSize = !originalSize;
     
+    
+    for (THCircularProgressView *view in self.examples) {
+        CGRect frame = view.frame;
+        frame.size.width = CGRectGetWidth(view.frame) * multiplier;
+        frame.size.height = CGRectGetHeight(view.frame) * multiplier;
+        view.frame = frame;
+    }
 }
 
 @end
