@@ -30,22 +30,26 @@
     
     CGFloat width = self.view.frame.size.width;
     CGFloat height = self.view.frame.size.height;
-    CGFloat radius = width / 4 * 0.8;
-    
-    THCircularProgressView *example1 = [[THCircularProgressView alloc] initWithCenter:CGPointMake(width * .25, height * .25)
-                                                                               radius:radius
-                                                                            lineWidth:10.0f
-                                                                         progressMode:THProgressModeDeplete
-                                                                        progressColor:[UIColor redColor]
-                                                               progressBackgroundMode:THProgressBackgroundModeCircle
-                                                              progressBackgroundColor:[UIColor colorWithRed:0.96f green:0.96f blue:0.96f alpha:1.00f]
-                                                                           percentage:self.percentage];
+    CGFloat radius = floor(width / 4 * 0.8);
+
+    THCircularProgressView *example1 = [[THCircularProgressView alloc] initWithFrame:CGRectZero];
+
+    example1.progressColor = [UIColor redColor];
+    example1.progressBackgroundColor = [UIColor colorWithWhite:0.96f alpha:1.0f];
+    example1.percentage = self.percentage;
+    example1.progressBackgroundMode = THProgressBackgroundModeCircle;
+    example1.progressMode = THProgressModeDeplete;
     example1.clockwise = NO;
+    example1.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:example1];
     [self.examples addObject:example1];
     
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:example1 attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:0.5 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:example1 attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterY multiplier:0.5 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:example1 attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeWidth multiplier:1.0 constant:radius*2]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:example1 attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:example1 attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0]];
     
-    THCircularProgressView *example2 = [[THCircularProgressView alloc] initWithFrame:CGRectMake(width/2, example1.frame.origin.y, radius*2, radius*2)];
+    THCircularProgressView *example2 = [[THCircularProgressView alloc] initWithFrame:CGRectMake(width * .75 - radius, height * .25 - radius, radius*2, radius*2)];
     example2.lineWidth = 30.0f;
     example2.progressColor = [UIColor greenColor];
     example2.centerLabel.font = [UIFont boldSystemFontOfSize:radius];

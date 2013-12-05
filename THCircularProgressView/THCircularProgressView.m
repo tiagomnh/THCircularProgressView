@@ -78,6 +78,12 @@
     
     // scale linewidth and font to match new size
     CGFloat w = self.frame.size.width;
+    if (w == 0) {
+        return;
+    }
+    if (oldFrameWidth == 0) { // skip scale if initial frame width is zero
+        oldFrameWidth = w;
+    }
     CGFloat scale = w/oldFrameWidth;
     if (scale != 1.0) {
         _lineWidth *= scale;
