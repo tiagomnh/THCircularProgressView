@@ -146,23 +146,22 @@
     CGFloat radiusMinusLineWidth = radius - self.lineWidth / 2;
     CGFloat percentage = self.percentage;
     
-    if (self.clockwise == NO) {
+    if ((!self.clockwise && percentage < 1.0f) || (self.progressMode == THProgressModeDeplete && percentage == 0.0f)) {
         percentage = 1.0f - percentage;
     }
 
     BOOL clockwise = YES;
-    if ((self.clockwise && self.progressMode == THProgressModeDeplete) ||
-        (self.clockwise == NO && self.progressMode == THProgressModeFill)) {
+    if (percentage < 1.0f && ((self.clockwise && self.progressMode == THProgressModeDeplete) || (!self.clockwise && self.progressMode == THProgressModeFill))) {
         clockwise = NO;
     }
     
     CGFloat startAngle = -M_PI_2;
     CGFloat endAngle = startAngle + percentage * 2 * M_PI;
     
-    if (self.progressMode == THProgressModeFill && percentage > 0) {
+    if (self.progressMode == THProgressModeFill && self.percentage > 0) {
         [self drawProgressArcWithStartAngle:startAngle endAngle:endAngle radius:radiusMinusLineWidth clockwise:clockwise];
     }
-    else if (self.progressMode == THProgressModeDeplete && percentage < 1) {
+    else if (self.progressMode == THProgressModeDeplete && self.percentage < 1) {
         [self drawProgressArcWithStartAngle:startAngle endAngle:endAngle radius:radiusMinusLineWidth clockwise:clockwise];
     }
     
